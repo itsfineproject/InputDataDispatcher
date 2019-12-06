@@ -22,26 +22,6 @@ public class InputDataDispatcherServiceTest {
     private final String INVALID_CAR_NUMBER_FORMAT_2 = "44a-aa-444";
     private final String CAR_NUMBER_VALIDATION_REG_EX = "\\d{2}-\\d{3}-\\d{2}|\\d{3}-\\d{2}-\\d{3}";
 
-    private final String ARRAY_FOR_SPLIT_SIZE_8 = "[" +
-            "{\"parking_id\":d,\"car_number\":\"\",\"date_time\":[2019,12,5,21,8,5,684000000]}," +
-            "{\"parking_id\":1,\"car_number\":\"222-22-22\",\"date_time\":[2019,12,5,21,8,5,684000000]}," +
-            "{\"parking_id\":5,\"car_number\":\"33-333-33\",\"date_time\":null}," +
-            "{\"parking_id\":3,\"car_number\":\"444-44-444\",\"date_time\":[2019,12,5,21,8,5,684000000]}," +
-            "{\"parking_id\":5,\"car_number\":\"55-555-55\",\"date_time\":[2019,12,5,21,8,5,684000000]}," +
-            "{\"parking_id\":2,\"car_number\":\"666-666-66\",\"date_time\":[2019,12,5,21,8,5,684000000]}," +
-            "{\"parking_id\":1,\"car_number\":\"7-7-7\",\"date_time\":[2019,12,5,21,8,5,684000000]}," +
-            "{\"parking_id\":3,\"car_number\":\"888888-88\",\"date_time\":[2019,12,5,21,8,5,684000000]}" +
-            "]";
-    private ArrayList<String> accum = new ArrayList<>();
-
-    @Test
-    public void splitArrayByElements() {
-        in.splitArrayByElements(new StringBuilder(ARRAY_FOR_SPLIT_SIZE_8), accum);
-        int actualSize = accum.size();
-        int expectedSize = 8;
-        Assert.assertEquals(actualSize, expectedSize);
-    }
-
     @Test
     public void isDateTimeValid() {
         boolean checkTrue = in.isDateTimeValid(VALID_DATE_TIME);
